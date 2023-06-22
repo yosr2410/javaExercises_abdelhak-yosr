@@ -1,6 +1,7 @@
 package fr.abdelhak.myApi.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,4 +30,11 @@ public User createUser(@RequestBody UserRequest body){
    User user = userService.createUser(body.getName(),body.getAge());
    return user;
 }
+
+@PutMapping("/user")
+public User updateUser(@RequestParam int id, @RequestBody UserRequest body){
+User user = userService.updateUser(id, body.getName(), body.getAge());
+return user;
+}
+
 }

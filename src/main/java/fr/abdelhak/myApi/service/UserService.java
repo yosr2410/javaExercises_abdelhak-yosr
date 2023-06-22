@@ -12,7 +12,7 @@ public UserService(){
     this.users.add(new User(1,"Yosr", 34));
     this.users.add(new User(2,"Ayoub", 3));
     this.users.add(new User(3,"Fatima", 50));
-    
+
 }
 //methode getUser
 public User getUser(int id) {
@@ -30,4 +30,12 @@ public User creatUser(String name, int age){
 public User createUser(String name, int age) {
     return null;
 }
+public User updateUser(int id, String name, int age){
+  User user = getUser(id);
+  user.setName(name);
+  user.setAge(age);
+  return user;
+
+} 
+
 }
