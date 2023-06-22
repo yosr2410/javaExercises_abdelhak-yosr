@@ -12,7 +12,9 @@ public UserService(){
     this.users.add(new User(1,"Yosr", 34));
     this.users.add(new User(2,"Ayoub", 3));
     this.users.add(new User(3,"Fatima", 50));
+    
 }
+//methode getUser
 public User getUser(int id) {
     for (User user : this.users) {
         if (user.getId() == id) {
@@ -21,5 +23,11 @@ public User getUser(int id) {
     }
     return null;
 }
-
+public User creatUser(String name, int age){
+    User user = new User(users.size()+1, name, age);
+    return user;
+}
+public User createUser(String name, int age) {
+    return null;
+}
 }
