@@ -1,4 +1,5 @@
 package fr.abdelhak.myApi.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -37,4 +38,9 @@ User user = userService.updateUser(id, body.getName(), body.getAge());
 return user;
 }
 
+@DeleteMapping("/user")
+public User updateUser(@RequestParam int id){
+User user = userService.deleteUser(id);
+return user;
+}
 }

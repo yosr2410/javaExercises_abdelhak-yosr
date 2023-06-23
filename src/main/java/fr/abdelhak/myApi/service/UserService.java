@@ -9,9 +9,9 @@ public class UserService {
 public UserService(){
     this.users = new ArrayList<User>();
 
-    this.users.add(new User(1,"Yosr", 34));
-    this.users.add(new User(2,"Ayoub", 3));
-    this.users.add(new User(3,"Fatima", 50));
+    this.users.add(new User(0,"Yosr", 34));
+    this.users.add(new User(1,"Ayoub", 3));
+    this.users.add(new User(2,"Fatima", 50));
 
 }
 //methode getUser
@@ -37,5 +37,14 @@ public User updateUser(int id, String name, int age){
   return user;
 
 } 
+public User deleteUser(int id){
 
+    for (int index = 0; index < users.size(); index++) {
+        if (users.get(index).getId() == id) {
+        this.users.remove(index);   
+return users.get(index);
+}   
+}
+return null;
+}
 }
