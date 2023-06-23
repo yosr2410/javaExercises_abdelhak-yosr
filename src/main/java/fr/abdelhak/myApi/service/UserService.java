@@ -24,7 +24,7 @@ public User getUser(int id) {
     return null;
 }
 public User creatUser(String name, int age){
-    User user = new User(users.size()+1, name, age);
+    User user = new User(users.size(), name, age);
     return user;
 }
 public User createUser(String name, int age) {
