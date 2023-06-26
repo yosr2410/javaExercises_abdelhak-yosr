@@ -49,14 +49,34 @@ public Animal updateAnimal(@RequestParam int id){
 Animal animal = animalService.deleteAnimal(id);
 return animal;
 }
-public class ResponseEntity<T>
-@RequestMapping("/animal")
- public ResponseEntity<String> animal() {
-   URI location = ...;
-   HttpAnimals responseAnimals = new HttpAnimals();
-   responseAnimals.setLocation(location);
-   responseAnimals.set("MyResponseAnimal", "MyValue");
-   return new ResponseEntity<String>("Hello World", responseAnimals, HttpStatus.CREATED);
+
+
+
+@GetMapping("/animalResponse")
+ public ResponseEntity<Animal>  animal(@RequestParam int id) {
+    Animal animal = animalService.getAnimal(id);
+if(animal != null && animal.getId() != 0){
+   return new ResponseEntity<Animal>(animal, HttpStatus.ACCEPTED);
+}
+  return new ResponseEntity<Animal>(animal, HttpStatus.NOT_ACCEPTABLE);
  }
-}   
+@GetMapping("/animalResponse2")
+ public ResponseEntity<Animal> animal2(@RequestParam int id) {
+    Animal animal = animalService.getAnimal(id);
+if(animal != null && animal.getId() != 0){
+   return new ResponseEntity<Animal>(animal, HttpStatus.CREATED);
+}
+  return new ResponseEntity<Animal>(animal, HttpStatus.NOT_MODIFIED);
+ }
+ @GetMapping("/animalResponse3")
+ public ResponseEntity<Animal> animal3(@RequestParam int id) {
+    Animal animal = animalService.getAnimal(id);
+if(animal != null && animal.getId() != 0){
+   return new ResponseEntity<Animal>(animal, HttpStatus.CONTINUE);
+}
+  return new ResponseEntity<Animal>(animal, HttpStatus.NOT_EXTENDED); // IL FAUT UN LOGIN ET MOT DE PASSE 
+ }
+} 
+
+  
 
